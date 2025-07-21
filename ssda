@@ -1,0 +1,35 @@
+# Ultrasonic Guiding Wristband for Blind People
+
+A smart wearable device designed to assist visually impaired individuals in navigating obstacles using an ultrasonic sensor and buzzer feedback.
+
+## 🔧 Hardware Required
+- Arduino Uno or Nano
+- HC-SR04 Ultrasonic Sensor
+- Buzzer (or vibrating motor)
+- Jumper wires, breadboard
+- Optional: DFPlayer Mini for voice feedback
+
+## 🔌 Circuit Connections
+| Component       | Arduino Pin |
+|----------------|-------------|
+| HC-SR04 Trig    | D9          |
+| HC-SR04 Echo    | D10         |
+| Buzzer          | D6          |
+| VCC/GND         | 5V/GND      |
+
+## 🧠 How It Works
+- The ultrasonic sensor detects distance to nearby objects.
+- If an object is within 50 cm, the buzzer vibrates/beeps.
+- Designed to be worn as a wristband for hands-free mobility.
+
+## 🚀 Getting Started
+1. Wire the components as shown above.
+2. Upload `ultrasonic_wristband.ino` to your Arduino board.
+3. Power the board and test the wristband by placing obstacles.
+
+## 🎯 Future Improvements
+- Add voice feedback using DFPlayer Mini.
+- Integrate OCR camera to convert text to speech.
+
+## 🧾 License
+This project is open-source under the MIT License.
