@@ -1,0 +1,46 @@
+`timescale 1ns/1ps
+
+module fsm_101_tb;
+
+    reg clk, reset, in;
+    wire detected;
+
+    fsm_101_detector uut (
+        .clk(clk),
+        .reset(reset),
+        .in(in),
+        .detected(detected)
+    );
+
+    // Clock generation
+    always #5 clk = ~clk;
+
+    initial begin
+        // Initialize signals
+        clk = 0;
+        reset = 1;
+        in = 0;
+
+        // Hold reset
+        #10;
+        reset = 0;
+
+        // Test input sequence: 1 0 1 (should detect)
+        #10 in = 1;
+        #10 in = 0;
+        #10 in = 1;  // Detected here
+        #10 in = 1;
+        #10 in = 0;
+        #10 in = 1;  // Detected again
+
+        // More random inputs
+        #10 in = 0;
+        #10 in = 1;
+        #10 in = 1;
+        #10 in = 0;
+        #10 in = 1;  // Detected
+
+        #20 $finish;
+    end
+
+endmodule
